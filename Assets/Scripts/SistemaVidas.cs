@@ -66,5 +66,14 @@ public class SistemaVidas : MonoBehaviour
         playerRenderer.enabled = true;
     }
 
+    public int ObtenerVidasActuales()
+    {
+        return currentLife;
+    }
+
+    public int VidasMaximas()
+    {
+        return maxLife;
+    }
   
 }

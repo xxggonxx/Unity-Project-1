@@ -5,6 +5,8 @@ public class GameManager : MonoBehaviour
     public GameObject victoryPanel;
     public GameObject losePanel;
 
+    public SistemaEstrellas sistemaEstrellas;
+
     public bool gameFinished = false;
 
 
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
         }
 
         gameFinished = true;
+        sistemaEstrellas.CalcularEstrellas();
         victoryPanel.SetActive(true);
         Debug.Log("¡Ganaste!");
 
