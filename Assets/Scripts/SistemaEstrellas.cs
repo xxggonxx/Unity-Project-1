@@ -1,11 +1,18 @@
 using UnityEngine;
-
+using UnityEngine.UI;
 public class SistemaEstrellas : MonoBehaviour
 {
     public SistemaColeccionables coleccionables;
     public SistemaVidas vidas;
+    public SistemaProgreso sistemaProgreso;
     public Cronometro tiempo;
     public GameManager manager;
+
+    public Image[] estrellas;
+    public Sprite estrellaDorada;
+    public Sprite estrellaGris;
+    public string nivelID = "Nivel1";
+
 
     private int estrellasConseguidas = 0;
     public float tiempoObjetivo = 60f;
@@ -34,6 +41,28 @@ public class SistemaEstrellas : MonoBehaviour
         {
             estrellasConseguidas++;
             Debug.Log("estrella x tiempo");
+        }
+        MostrarEstrellas();
+
+        Debug.Log("conseguiste" +  estrellasConseguidas);
+
+        sistemaProgreso.GuardarMejorResultado(nivelID, estrellasConseguidas);
+        Debug.Log(sistemaProgreso.ObtenerMejorResultado(nivelID));
+    }
+
+    public void MostrarEstrellas()
+    {
+        for (int i = 0; i < estrellas.Length; i++)
+        {
+            if( i < estrellasConseguidas)
+            {
+                estrellas[i].sprite = estrellaDorada;
+            }
+            else
+            {
+                estrellas[i].sprite = estrellaGris;
+
+            }
         }
     }
 
