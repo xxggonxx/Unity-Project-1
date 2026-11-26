@@ -53,6 +53,7 @@ public class MovimientoCubo : MonoBehaviour
     {
         if(gameManager.gameFinished)
         {
+            body.linearVelocity = Vector3.zero;
             return;
         }
         Vector3 movimiento = direction.normalized * speed;

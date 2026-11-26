@@ -14,12 +14,14 @@ public class SistemaVidas : MonoBehaviour
 
     public TMP_Text lifeText;
     public GameManager gameManager;
+    public ParticleSystem particulasExplosion;
 
 
     void Start()
     {
         currentLife = maxLife;
         playerRenderer = GetComponent<Renderer>();
+        ActualizarTexto();
     }
 
 
@@ -39,6 +41,9 @@ public class SistemaVidas : MonoBehaviour
         ActualizarTexto();
         if(currentLife <= 0)
         {
+            ParticleSystem explotar = Instantiate(particulasExplosion, transform.position, Quaternion.identity);
+            explotar.Play();
+            playerRenderer.enabled = false;
             gameManager.LoseGame();
             return;
         }

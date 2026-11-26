@@ -6,6 +6,7 @@ public class SelectorNiveles : MonoBehaviour
 {
     public GameObject panelSeleccionNivel;
     public GameObject panelMenuPrincipal;
+    public AnimacionPanel animacionPanel;
 
     public Sprite estrellaDorada;
     public Sprite estrellaGris;
@@ -14,8 +15,6 @@ public class SelectorNiveles : MonoBehaviour
     public Image[] estrellasNivel1;
     public Image[] estrellasNivel2;
     public Image[] estrellasNivel3;
-    public Image[] estrellasNivel4;
-    public Image[] estrellasNivel5;
 
 
    private void Start()
@@ -23,8 +22,6 @@ public class SelectorNiveles : MonoBehaviour
         MostrarEstrellasNivel("Nivel1", estrellasNivel1);
         MostrarEstrellasNivel("Nivel2", estrellasNivel2);
         MostrarEstrellasNivel("Nivel3", estrellasNivel3);
-        MostrarEstrellasNivel("Nivel4", estrellasNivel4);
-        MostrarEstrellasNivel("Nivel5", estrellasNivel5);
     }
 
 
@@ -49,6 +46,7 @@ public class SelectorNiveles : MonoBehaviour
     public void AbrirSelectorDeNivel()
     {
         panelSeleccionNivel.SetActive(true);
+        StartCoroutine(animacionPanel.PanelesAnimados(animacionPanel.panel));
     }
     public void CerrarSelectorDeNivel()
     {
